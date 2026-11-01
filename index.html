@@ -228,7 +228,7 @@ o.start(t);o2.start(t);o.stop(t+e+.1);o2.stop(t+e+.1)}
 function loop(){if(!on)return;var t=AC.currentTime+.1;MEL.forEach(function(n){tone(n[0],t,n[1]*.62);t+=n[1]*.62});tm=setTimeout(loop,(t-AC.currentTime+2.5)*1000)}
 function synthOn(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume();mg=AC.createGain();mg.gain.value=.16;mg.connect(AC.destination);on=true;loop()}catch(e){}}
 function synthOff(){on=false;clearTimeout(tm);try{mg.disconnect()}catch(e){}}
-function startMusic(){tried=true;au=new Audio('music.mp3');au.loop=true;au.volume=.5;
+function startMusic(){tried=true;au=new Audio('beat.mp3');au.loop=true;au.volume=.5;
 au.play().then(function(){mode='file';mu.classList.remove('off')}).catch(function(){mode='synth';synthOn();mu.classList.remove('off')})}
 mu.onclick=function(){if(!tried){startMusic();return}
 if(mode==='file'){if(au.paused)au.play();else au.pause();mu.classList.toggle('off',au.paused)}
